@@ -26,3 +26,20 @@ const displayData = (bloglists) => {
     blogContainer.appendChild(listContainer);
   });
 };
+
+const disPLayBlog = () => {
+  const url = `https://openapi.programming-hero.com/api/news/category/01`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => ShowBlogs(data.data));
+};
+disPLayBlog();
+
+const ShowBlogs = (datas) => {
+  const showBlog = document.getElementById("show-blog");
+  datas.forEach((data) => {
+    const blogWrapper = document.createElement("div");
+
+    console.log(data);
+  });
+};
