@@ -1,6 +1,7 @@
 console.log(" it's working");
-const url = `https://openapi.programming-hero.com/api/news/categories`;
-function loadData() {
+const loadData = () => {
+  const url = `https://openapi.programming-hero.com/api/news/categories`;
+
   fetch(url)
     .then((res) => {
       return res.json();
@@ -11,7 +12,7 @@ function loadData() {
     .catch((err) => {
       console.log(err);
     });
-}
+};
 loadData();
 const displayData = (bloglists) => {
   const blogContainer = document.getElementById("blog-container");
@@ -19,7 +20,7 @@ const displayData = (bloglists) => {
     console.log(blog);
     const listContainer = document.createElement("div");
     listContainer.innerHTML = `
-     <li class="list-none float-left px-[20px] py-[20px] space-between ml-[50px]">${blog.category_name}</li>
+     <li class="cursor-pointer list-none float-left px-[20px] py-[20px] space-between ml-[50px]">${blog.category_name}</li>
      `;
 
     blogContainer.appendChild(listContainer);
