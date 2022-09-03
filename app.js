@@ -17,14 +17,26 @@ const loadData = () => {
 loadData();
 const displayData = (bloglists) => {
   const blogContainer = document.getElementById("blog-container");
-  bloglists.forEach((blog) => {
-    console.log(blog);
-    const listContainer = document.createElement("div");
-    listContainer.innerHTML = `
-     <li class="cursor-pointer list-none float-left px-[20px] py-[20px] space-between ml-[50px] ">${blog.category_name}</li>
-     `;
+  bloglists.forEach((category) => {
+    console.log(category);
+    const a = document.createElement("a");
+    a.style.cursor = "pointer";
+    a.style.listStyle = "none";
+    a.style.float = "left";
+    a.style.paddingRight = "20px";
+    a.style.paddingLeft = "20px";
+    a.style.paddingTop = "20px";
+    a.style.paddingBottom = "20px";
+    a.style.justifyContent = "center";
 
-    blogContainer.appendChild(listContainer);
+    a.style.marginLeft = "50px";
+
+    a.innerHTML = `
+     <li>${category.category_name}</li>
+     `;
+    a.setAttribute("id", `${category?.category_id}`);
+    a.innerText = category?.category_name;
+    blogContainer.appendChild(a);
   });
 };
 
