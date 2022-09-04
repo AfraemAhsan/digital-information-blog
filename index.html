@@ -1,39 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Information Blog</title>
+
+    <style>
+      p,
+      a {
+        font-family: "Oswald";
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: {
+              md: "834px",
+              // => @media (min-width: 960px) { ... }
+
+              lg: "1440px",
+              // => @media (min-width: 1440px) { ... }
+            },
+          },
+        },
+      };
+    </script>
+
+    <title>Digital-Information-blogs</title>
   </head>
-  <body>
-    <main class="w-[1440px] mx-auto">
-      <navbar
-        class="w-full h-[102px] flex justify-between border-b-4 border-slate-300 px-[50px] py-[30px]"
+  <body class="bg-gray-100">
+    <header>
+      <nav class="w-full h-[102px]">
+        <div
+          class="w-[768px] md:w-[1440px] h-full mx-auto flex items-center justify-between border-b border-[#CDCDCD]"
+        >
+          <div class="h-[38px] w-[150px]">
+            <a
+              href="/"
+              class="w-full h-full text-white font-bold text-2xl flex items-center justify-between"
+            >
+              <h1
+                class="w-[80px] h-full bg-[#5D5FEF] text-center rounded-[4px] flex items-center justify-center"
+              >
+                Digital
+              </h1>
+              <h1 class="w-[60px] h-[21px] text-gray-400 flex items-center">
+                Portal
+              </h1>
+            </a>
+          </div>
+          <div class="w-[170px] flex items-center justify-between">
+            <div class="w-[51px] flex flex-col items-center">
+              <a href="/" class="text-[#5D5FEF] text-base">News</a>
+              <hr class="border border-[#5D5FEF] w-[10px]" />
+            </div>
+            <div class="w-[51px] flex items-center justify-center">
+              <a href="/blog.html" class="text-[#A3A3A3] text-base">Blog</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div
+        id="news-category"
+        class="w-[768px] md:w-[1200px] mx-auto h-[100px] flex items-center justify-between"
+      ></div>
+    </header>
+    <main class="w-[768px] md:w-[1200px] mx-auto min-h-screen">
+      <div
+        class="item-Found-Div w-full h-[63px] bg-[#FFFFFF] p-3 items-center hidden"
       >
-        <div>
-          <a href="#" class="bg-sky-800 p-[10px] rounded mx-[10px]">Blogs</a>
-          <a href="">Portal</a>
-        </div>
-        <div class="px-[5px]">
-          <a href="" class="px-[15px] hover:border-b-2 border-blue-500">
-            Blogs
-          </a>
-          <a href="" class="px-[15px] hover:border-b-2 border-blue-500">
-            News
-          </a>
-        </div>
-      </navbar>
-      <section></section>
-      <section>
-        <div id="blog-container"></div>
-      </section>
-      <section>
-        <div id="show-blog"></div>
-      </section>
-      <section></section>
+        <p id="item-Found"></p>
+      </div>
+
+      <div
+        class="w-full h-auto flex flex-col gap-4 mt-[55px]"
+        id="news-Show"
+      ></div>
+      <!-- news list ends -->
+
+      <!-- rendering modal -->
+      <div class="modal" id="showModalInfo"></div>
+
+      <!-- <div class="modal"></div> -->
+      <!-- rendering modal ends -->
     </main>
+
+    <!-- footer -->
+    <footer
+      class="w-[768px] md:w-[1440px] mx-auto h-[83px] flex items-center justify-center relative bottom-0 mt-20 bg-white"
+    >
+      <p class="">Copyright 2022 Digital-Information-blogs</p>
+    </footer>
+
     <script src="app.js"></script>
   </body>
 </html>
